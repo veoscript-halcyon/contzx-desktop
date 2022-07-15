@@ -1,13 +1,13 @@
 import React from 'react'
 import DefaultLayout from '../layouts/Default'
-import Table from '../components/Table'
+import AddContact from '../components/Forms/AddContact'
 
-const Home = () => {
+const New = () => {
   return (
     <DefaultLayout>
-      <Table />
+      <AddContact />
     </DefaultLayout>
   )
 }
 
-export default Home
+export default New
