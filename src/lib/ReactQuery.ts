@@ -13,6 +13,17 @@ export const useGetContacts = () => {
   )
 }
 
+export const useGetContact = (id: string) => {
+  return useQuery('contact',
+    async () => {
+      const contact = await api.get(`/api/contact/${String(id)}`)
+      return contact.data
+    },
+    {
+      refetchInterval: 1000
+    }
+  )
+}
 
 export const useStoreContact = () => {
   const queryClient = useQueryClient()
@@ -44,7 +55,7 @@ export const useUpdateContact = () => {
     }),
     {
       onSettled: () => {
-        queryClient.invalidateQueries('contacts')
+        queryClient.invalidateQueries('contact')
       }
     }
   )
